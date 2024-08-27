@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def index(request):
     return render(request, "landingpage/index.html")
+
+def indexfa(request):
+    return render(request, "landingpage/indexfa.html")

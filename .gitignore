@@ -1,0 +1,9 @@
+# Ignore environment folders and files
+.env/
+.env
+
+# Ignore other sensitive or unnecessary files
+*.pyc
+__pycache__/
+venv/
+.DS_Store

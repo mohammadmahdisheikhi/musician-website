@@ -1,0 +1,61 @@
+/* styles.css */
+
+/* Import a Persian font */
+@import url('https://fonts.googleapis.com/css2?family=Vazir:wght@400;700&display=swap');
+
+/* General styles */
+body {
+    font-family: 'Vazir', sans-serif; /* Use the Persian font */
+    direction: rtl; /* Set text direction to RTL */
+    text-align: right; /* Align text to the right */
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+main {
+    margin: 20px 0;
+}
+
+.article {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.article h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.article p {
+    line-height: 1.6;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}

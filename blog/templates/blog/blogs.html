@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+
+    <!-- Load the static template tag -->
+    {% load static %}
+
+    <!-- Font Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Removed conflicting external CSS files -->
+</head>
+<body dir="rtl" style="font-family: Vazirmatn, sans-serif;">
+    <div class="super_container">
+
+        <!-- Header -->
+        <header class="header" style="background-color: #333; padding: 20px 20px;">
+            <!-- Header Content -->
+            <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                <div class="logo">
+                    <a href="indexfa" style="display: flex; text-align: right; color: white; font-size: 24px; text-decoration: none;">سروش یغمایی</a>
+                </div>
+                <nav class="main_nav" style="margin-right: auto;">
+                    <ul style="display: flex; flex-direction: row; align-items: start; justify-content: start; list-style: none; margin: 0; padding: 0;">
+                        <li style="margin-right: 20px;"><a href="{% url 'indexfa' %}" style="color: white; text-decoration: none;">صفحه اصلی</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Blog List Section -->
+        <div class="blog_list" style="direction: rtl; padding: 20px 0; background-color: #222;">
+            <div class="container" style="width: 90%; max-width: 1200px; margin: auto;">
+                <div class="row">
+                    <!-- Blog List -->
+                    <div class="col-lg-12">
+						<h6 style="font-size: 40px; color: #fefefe;">وبلاگ</h6>
+                        <div class="blog_posts" style="direction: rtl; text-align: right;">
+                            {% for blog in blogs %}
+                            <div class="blog_post" style="margin-top: 20px; padding: 20px; background-color: #444; border-radius: 10px;">
+                                <div class="blog_post_image" style="text-align: center; margin-bottom: 20px;">
+                                    <!--<img src="{{ blog.image.url }}" alt="{{ blog.title }}" style="width: 100%; height: auto; border-radius: 10px;">-->
+                                </div>
+                                <div class="blog_post_content">
+                                    <div class="blog_post_title">
+                                        <h2 style="color: orange; margin-bottom: 10px;"><a href="{% url 'blog_detail' blog.id %}" style="color: orange; text-decoration: none;">{{ blog.title }}</a></h2>
+                                    </div>
+                                    <!--<div class="blog_post_date" style="color: white; margin-bottom: 10px;">
+                                        {{ blog.date|date:"F d, Y" }}
+                                    </div>-->
+                                    <div class="blog_post_text" style="color: white;">
+                                        <p>{{ blog.text|slice:":400" }}{% if blog.text|length > 200 %}...{% endif %}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.1.2/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/easing/easing.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
