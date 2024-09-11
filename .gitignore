@@ -2,7 +2,9 @@
 .env/
 .env
 
+
 # Ignore other sensitive or unnecessary files
+env
 *.pyc
 __pycache__/
 venv/
