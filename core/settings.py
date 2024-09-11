@@ -34,6 +34,11 @@ ALLOWED_HOSTS = [
     "https://soroushyaghmaie.com",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "soroushyaghmaie.com",
+    "https://soroushyaghmaie.com",
+]
+
 # Application definition
 
 INSTALLED_APPS = [
