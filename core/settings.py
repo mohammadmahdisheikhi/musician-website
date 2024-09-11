@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECURE', None)
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "soroushyaghmaie.com"
+    "soroushyaghmaie.com",
+    "https://soroushyaghmaie.com",
 ]
 
 # Application definition
