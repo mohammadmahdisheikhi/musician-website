@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+
+    <!-- Load the static template tag -->
+    {% load static %}
+
+    <!-- Font Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            background-color: #292929;
+        }
+
+        .site_header {
+            background-color: #333;
+            padding: 20px;
+        }
+
+        .site_header .brand_logo a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .site_nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .site_nav ul li {
+            margin-right: 20px;
+        }
+
+        .site_nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .content_section {
+            padding: 40px 0;
+            background-color: #292929;
+        }
+
+        .main_container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .content_card {
+            background-color: #444;
+            color: #fff;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .content_card_title {
+            font-size: 32px;
+            color: orange;
+            margin-bottom: 15px;
+        }
+
+        .content_card_title a {
+            color: orange;
+            text-decoration: none;
+        }
+
+        .content_card_text {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .content_card_video video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site_header">
+        <div class="main_container">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="brand_logo">
+                    <a href="indexfa" style="display: flex; align-items: center; color: white;">سروش یغمایی</a>
+                </div>
+                <nav class="site_nav">
+                    <ul>
+                        <li><a href="{% url 'indexfa' %}">صفحه اصلی</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="content_section">
+        <div class="main_container">
+            <h1 style="font-size: 40px; color: #fefefe; text-align: center;">لیست ویدیوها</h1>
+            <div class="content_list" style="direction: rtl; text-align: right;">
+                {% for video in videos %}
+                <div class="content_card">
+                    <div class="content_card_video">
+                        <!-- Video Player -->
+                        <video controls>
+                            <source src="{{ video.video_file.url }}" type="video/mp4">
+                            مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+                        </video>
+                    </div>
+                    <div class="content_card_body">
+                        <h2 class="content_card_title">
+                            <a>{{ video.title }}</a>
+                        </h2>
+                        <div class="content_card_text">
+                            <p>{{ video.description|slice:":200" }}{% if video.description|length > 200 %}...{% endif %}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Scripts -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.1.2/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/easing/easing.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
