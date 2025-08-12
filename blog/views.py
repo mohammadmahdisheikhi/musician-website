@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render
-from .models import BlogPost, Video
+from .models import BlogPost, Video, Photo
 
 def blog_list(request):
     blogs = BlogPost.objects.all()  # Fetch all blog posts from the database
@@ -13,3 +13,7 @@ def blog_detail(request, blog_id):
 def video_list(request):
     videos = Video.objects.all()
     return render(request, 'blog/videos.html', {'videos': videos})
+
+def photo_gallery(request):
+    photos = Photo.objects.all()
+    return render(request, 'blog/photos.html', {'photos': photos})
